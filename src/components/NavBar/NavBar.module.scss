@@ -1,0 +1,65 @@
+.content {
+  width: 80%;
+  height: 100vh;
+  position: absolute;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.navBar {
+  display: flex;
+  justify-content: flex-start;
+  z-index: 10;
+}
+
+.navBarOptions {
+  height: 100vh;
+  background: #152938;
+}
+
+.buttonMenu {
+  max-height: 4rem;
+  width: 4rem;
+  background: #495a6b;
+  border: 1px solid #97a9bb;
+
+  &:active, &:focus, &:hover {
+    outline: none;
+  }
+}
+
+.openIconContainer {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: #97a9bc;
+  }
+
+  svg {
+    path {
+      
+    }
+  }
+
+  &:active, &:focus, &:hover {
+    outline: none;
+  }
+}
+
+.closeIconContainer {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: #40afd6;
+  }
+
+  &:active, &:focus, &:hover {
+    outline: none;
+  }
+}
