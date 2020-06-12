@@ -72,8 +72,9 @@ class MapView extends React.Component {
       >
         <GeoJSONLayer
           data={geojson}
-          linePaint={{
-            "line-color": "#000"
+          fillPaint={{
+            "fill-color": "#3eb0d6",
+            "fill-opacity": 0.5
           }}
         />
       </Map>
