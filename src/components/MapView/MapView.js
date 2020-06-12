@@ -40,7 +40,7 @@ class MapView extends React.Component {
   }
 
   getPolygon(city) {
-    fetch(`http://127.0.0.1:5000/polygons?name=${city}`)
+    fetch(`/polygons?name=${city}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
