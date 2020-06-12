@@ -1,6 +1,6 @@
 import React from 'react';
-import qs from 'qs';
 import { withRouter } from 'react-router-dom';
+import { parse } from '../../utils/querystring';
 import ReactMapboxGl, { GeoJSONLayer } from "react-mapbox-gl";
 
 const Map = ReactMapboxGl({
@@ -20,7 +20,7 @@ class MapView extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { location } = this.props;
-    const loc = qs.parse(this.normalize(nextProps.location.search));
+    const loc = parse(nextProps.location.search);
 
     if(location.search !== nextProps.location.search) {
       this.getPolygon(loc.city)
@@ -30,7 +30,7 @@ class MapView extends React.Component {
   componentDidMount() {
     const { location, history } = this.props;
 
-    const loc = qs.parse(this.normalize(location.search));
+    const loc = parse(location.search);
 
     if(!loc.city){
       history.push(`/map?city=gdl`)
@@ -38,8 +38,6 @@ class MapView extends React.Component {
 
     this.getPolygon(loc.city)
   }
-
-  normalize = (querystring) => querystring[0] === '?' ? querystring.slice(1) : querystring;
 
   getPolygon(city) {
     fetch(`http://127.0.0.1:5000/polygons?name=${city}`)
