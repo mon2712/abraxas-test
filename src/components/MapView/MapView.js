@@ -40,7 +40,7 @@ class MapView extends React.Component {
   }
 
   getPolygon(city) {
-    fetch(`http://127.0.0.1:5000/polygons?name=${city}`)
+    fetch(`/polygons?name=${city}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -72,8 +72,9 @@ class MapView extends React.Component {
       >
         <GeoJSONLayer
           data={geojson}
-          linePaint={{
-            "line-color": "#000"
+          fillPaint={{
+            "fill-color": "#3eb0d6",
+            "fill-opacity": 0.5
           }}
         />
       </Map>
